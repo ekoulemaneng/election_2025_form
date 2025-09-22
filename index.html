@@ -1,0 +1,116 @@
+<!doctype html>
+<head>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1, user-scalable=no, maximum-scale=1, minimum-scale=1'>
+    <meta http-equiv='Cache-Control' content='public, max-age=31536000'>
+    <title>Election Result Form</title>
+    <link href='reset.css' rel='stylesheet'>
+    <link href='style.css' rel='stylesheet'>
+    <script src="https://telegram.org/js/telegram-web-app.js?59" defer></script>
+</head>
+<body>
+    <h1 id='form-title'></h1>
+    <dl id="poll-station-info">
+        <dt id='dt-poll-station'></dt><dd id='dd-poll-station'></dd>
+        <dt id='dt-region'></dt><dd id='dd-region'></dd>
+        <dt id='dt-division'></dt><dd id='dd-division'></dd>
+        <dt id='dt-council'></dt><dd id='dd-council'></dd>
+        <dt id='dt-location'></dt><dd id='dd-location'></dd>
+    </dl>
+    <dl id='results-summary' style="display: none;">
+        <dt id='dt-registered-voters'></dt><dd id='dd-registered-voters'></dd>
+        <dt id='dt-votes-cast'></dt><dd id='dd-votes-cast'></dd>
+        <dt id='dt-valid-votes'></dt><dd id='dd-valid-votes'></dd>
+        <dt id='dt-invalid-votes'></dt><dd id='dd-invalid-votes'></dd>
+        <dt>Ateki Seta</dt><dd id='dd-ateki-votes'></dd>
+        <dt>Bello Bouba</dt><dd id='dd-bello-votes'></dd>
+        <dt>Paul Biya</dt><dd id='dd-biya-votes'></dd>
+        <dt>Bougha Hagbé</dt><dd id='dd-bougha-votes'></dd>
+        <dt>Issa Tchiroma</dt><dd id='dd-tchiroma-votes'></dd>
+        <dt>Iyodi Hiram</dt><dd id='dd-iyodi-votes'></dd>
+        <dt>Kwemo Pierre</dt><dd id='dd-kwemo-votes'></dd>
+        <dt>Cabral Libii</dt><dd id='dd-libii-votes'></dd>
+        <dt>Serge Matomba</dt><dd id='dd-matomba-votes'></dd>
+        <dt>Akere Muna</dt><dd id='dd-akere-votes'></dd>
+        <dt>Joshua Osih</dt><dd id='dd-osih-votes'></dd>
+        <dt>Tomaino Njoya</dt><dd id='dd-tomaino-votes'></dd>
+    </dl>
+    <form id="form-body">
+        <fieldset id="general-info">
+            <h2 id='general-info-header'></h2>
+            <input id='poll_station_id' type="hidden" name="poll_station_id" value="">
+            <fieldset id="_registered_voters">
+                <label id='label_registered_voters' for="registered_voters">Nombre d'électeurs inscrits</label>
+                <input name="registered_voters" id="registered_voters" type="number" min="0" max="500" required autocomplete="off" inputmode="numeric" aria-required="true" value="0">
+            </fieldset>
+            <fieldset id="_votes_cast">
+                <label id='label_votes_cast' for="votes_cast">Nombre de votes exprimés</label>
+                <input name="votes_cast" id="votes_cast" type="number" min="0" max="500" required autocomplete="off" inputmode="numeric" aria-required="true" value="0">
+            </fieldset>
+            <fieldset id="_valid_votes">
+                <label id='label_valid_votes' for="valid_votes">Nombre de votes valides</label>
+                <input name="valid_votes" id="valid_votes" type="number" min="0" max="500" required autocomplete="off" inputmode="numeric" aria-required="true" value="0">
+            </fieldset>
+            <fieldset id="_invalid_votes">
+                <label id='label_invalid_votes' for="invalid_votes">Nombre de votes invalides</label>
+                <input name="invalid_votes" id="invalid_votes" type="number" min="0" max="500" required autocomplete="off" inputmode="numeric" aria-required="true" value="0">
+            </fieldset>
+        </fieldset>
+        <fieldset id="votes-distribution">
+            <h2 id='votes-distribution-header'></h2>
+            <fieldset id="_ateki_votes">
+                <label for="ateki_votes">Ateki Seta Caxton (PAL)</label>
+                <input name="ateki_votes" id="ateki_votes" type="number" min="0" max="500" required autocomplete="off" inputmode="numeric" value="0">
+            </fieldset>
+            <fieldset id="_bello_votes">
+                <label for="bello_votes">Bello Bouba Maigari (UNDP)</label>
+                <input name="bello_votes" id="bello_votes" type="number" min="0" max="500" required autocomplete="off" inputmode="numeric" value="0">
+            </fieldset>
+            <fieldset id="_biya_votes">
+                <label for="biya_votes">Biya Paul (RDPC)</label>
+                <input name="biya_votes" id="biya_votes" type="number" min="0" max="500" required autocomplete="off" inputmode="numeric" value="0">
+            </fieldset>
+            <fieldset id="_bougha_votes">
+                <label for="bougha_votes">Bougha Hagbé Jacques (MCNC)</label>
+                <input name="bougha_votes" id="bougha_votes" type="number" min="0" max="500" required autocomplete="off" inputmode="numeric" value="0">
+            </fieldset>
+            <fieldset id="_tchiroma_votes">
+                <label for="tchiroma_votes">Issa Tchiroma Bakary (FSNC)</label>
+                <input name="tchiroma_votes" id="tchiroma_votes" type="number" min="0" max="500" required autocomplete="off" inputmode="numeric" value="0">
+            </fieldset>
+            <fieldset id="_iyodi_votes">
+                <label for="iyodi_votes">Iyodi Hiram Samuel (FDC)</label>
+                <input name="iyodi_votes" id="iyodi_votes" type="number" min="0" max="500" required autocomplete="off" inputmode="numeric" value="0">
+            </fieldset>
+            <fieldset id="_kwemo_votes">
+                <label for="kwemo_votes">Kwemo Pierre (UMS)</label>
+                <input name="kwemo_votes" id="kwemo_votes" type="number" min="0" max="500" required autocomplete="off" inputmode="numeric" value="0">
+            </fieldset>
+            <fieldset id="_libii_votes">
+                <label for="libii_votes">Libii Li Ngue Ngue Cabral (PCRN)</label>
+                <input name="libii_votes" id="libii_votes" type="number" min="0" max="500" required autocomplete="off" inputmode="numeric" value="0">
+            </fieldset>
+            <fieldset id="_matomba_votes">
+                <label for="matomba_votes">Matomba Serge Espoir (PURS)</label>
+                <input name="matomba_votes" id="matomba_votes" type="number" min="0" max="500" required autocomplete="off" inputmode="numeric" value="0">
+            </fieldset>
+            <fieldset id="_akere_votes">
+                <label for="akere_votes">Muna Akere Tabeng (UNIVERS)</label>
+                <input name="akere_votes" id="akere_votes" type="number" min="0" max="500" required autocomplete="off" inputmode="numeric" value="0">
+            </fieldset>
+            <fieldset id="_osih_votes">
+                <label for="osih_votes">Osih Joshua Nambangi (SDF)</label>
+                <input name="osih_votes" id="osih_votes" type="number" min="0" max="500" required autocomplete="off" inputmode="numeric" value="0">
+            </fieldset>
+            <fieldset id="_tomaino_votes">
+                <label for="tomaino_votes">Tomaino Hermine Patricia (UDC)</label>
+                <input name="tomaino_votes" id="tomaino_votes" type="number" min="0" max="500" required autocomplete="off" inputmode="numeric" value="0">
+            </fieldset>
+        </fieldset>
+        <button id="validate-form"></button>
+        <button id="reset-form" type="reset"></button>
+        <button id="submit-form" type="submit" style="display: none;"></button>
+        <button id="modify-form" style="display: none;"></button>
+    </form>
+    <script src='script.js'></script>
+</body>

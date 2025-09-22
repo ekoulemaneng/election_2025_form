@@ -1,0 +1,207 @@
+/* Variables Telegram pour thème clair/sombre */
+:root {
+    --bg-color: var(--tg-theme-bg-color, #ffffff);
+    --text-color: var(--tg-theme-text-color, #000000);
+    --accent-color: var(--tg-theme-button-color, #2481cc);
+    --submit-color: #007bff; /* Couleur distincte pour Envoyer */
+    --accent-text-color: var(--tg-theme-button-text-color, #ffffff);
+    --border-color: var(--tg-theme-hint-color, #c4c4c4);
+    --input-bg: var(--tg-theme-secondary-bg-color, #f4f4f5);
+    --input-border: var(--tg-theme-hint-color, #c4c4c4);
+    --error-color: #e53935;
+    --padding: 20px;
+    --margin: 16px;
+    --border-radius: 10px;
+    --font-size: 16px;
+}
+
+/* Adaptation thème sombre */
+html[data-theme="dark"] {
+    --bg-color: var(--tg-theme-bg-color, #1c2526);
+    --text-color: var(--tg-theme-text-color, #ffffff);
+    --input-bg: var(--tg-theme-secondary-bg-color, #2c3e50);
+    --submit-color: #005bbb; /* Bleu plus sombre pour Envoyer en mode sombre */
+}
+
+/* Corps de la page */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin: var(--margin);
+    padding: var(--padding);
+    min-height: var(--tg-viewport-stable-height, 100vh);
+    box-sizing: border-box;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Titre principal */
+#form-title {
+    text-align: center;
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: var(--margin);
+}
+
+/* Infos du bureau de vote et résumé des résultats */
+#poll-station-info, #results-summary {
+    background-color: var(--input-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    padding: var(--padding);
+    margin-bottom: 2 * var(--margin);
+    margin-top: 12px;
+    display: grid;
+    grid-template-columns: minmax(120px, auto) 1fr;
+    gap: 12px;
+}
+
+#poll-station-info dt, #results-summary dt {
+    font-weight: 600;
+    text-align: left;
+}
+
+#poll-station-info dd, #results-summary dd {
+    margin: 0;
+    padding-left: 16px;
+}
+
+/* Formulaire */
+#form-body {
+    display: flex;
+    flex-direction: column;
+    gap: var(--margin);
+}
+
+/* Sections du formulaire */
+#general-info, #votes-distribution {
+    display: flex;
+    flex-direction: column;
+    gap: var(--margin);
+}
+
+#general-info h2, #votes-distribution h2 {
+    font-size: 20px;
+    font-weight: 600;
+    margin: 0 auto;
+    text-align: center;
+    width: 100%;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+/* Champs individuels */
+#form-body fieldset {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-left: 12px;
+    margin-top: 20px;
+}
+
+/* Labels */
+label {
+    font-size: var(--font-size);
+    font-weight: 500;
+}
+
+/* Inputs */
+input[type="number"] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--input-border);
+    border-radius: var(--border-radius);
+    font-size: var(--font-size);
+    background-color: var(--input-bg);
+    color: var(--text-color);
+    box-sizing: border-box;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"]:focus {
+    border-color: var(--accent-color);
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(36, 129, 204, 0.2);
+}
+
+/* Boutons */
+#validate-form, #modify-form {
+    background-color: var(--accent-color);
+    color: var(--accent-text-color);
+    border: none;
+    padding: 14px;
+    font-size: var(--font-size);
+    font-weight: 600;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    min-height: 44px;
+    width: 100%;
+    margin-top: var(--margin);
+}
+
+#submit-form {
+    background-color: var(--submit-color);
+    color: var(--accent-text-color);
+    border: none;
+    padding: 14px;
+    font-size: var(--font-size);
+    font-weight: 600;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    min-height: 44px;
+    width: 100%;
+    margin-top: var(--margin);
+}
+
+#reset-form {
+    background-color: var(--border-color);
+    color: var(--text-color);
+    border: none;
+    padding: 14px;
+    font-size: var(--font-size);
+    font-weight: 600;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    min-height: 44px;
+    width: 100%;
+    margin-top: var(--margin);
+}
+
+#validate-form:hover, #validate-form:active,
+#modify-form:hover, #modify-form:active {
+    background-color: #1a6dad;
+}
+
+#submit-form:hover, #submit-form:active {
+    background-color: #005bbb;
+}
+
+#reset-form:hover, #reset-form:active {
+    background-color: #a0a0a0;
+}
+
+/* Responsive pour tablettes */
+@media (min-width: 768px) {
+    body {
+        max-width: 600px;
+        margin: var(--margin) auto;
+    }
+}
+
+/* Adaptation Telegram */
+html {
+    height: var(--tg-viewport-height, 100vh);
+}
+
+/* Gestion du clavier mobile */
+:focus-within {
+    scroll-margin-top: var(--padding);
+}
