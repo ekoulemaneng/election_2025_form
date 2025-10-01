@@ -268,9 +268,10 @@ formBodyElement.addEventListener('submit', (event) => {
     // Send the data to the Telegram bot
     window.Telegram?.WebApp?.sendData(JSON.stringify(data));
     // Optionally, show a confirmation message
-    window.Telegram?.WebApp?.showAlert(language === 'fr' ? 'Données envoyées avec succès!' : 'Data sent successfully!');
-    // Reset the form after submission
-    formBodyElement.reset();
+    window.Telegram?.WebApp?.showAlert(language === 'fr' ? 'Données envoyées avec succès!' : 'Data sent successfully!', () => {
+        // Reset the form after submission
+        formBodyElement.reset(); 
+    });
 });
 
 // Add an event listener to the button to handle form reset
